@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظّم حياتك | قوالب Notion ذكية للطلاب والموظفين ورواد الأعمال</title>
+<meta name="description" content="ثلاثة قوالب Notion احترافية: للطلاب، الموظفين، ورواد الأعمال — نظّم مهامك وأهدافك وإيراداتك اليوم.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117;--bg2:#141b24;--card:#1a2330;--primary:#7c3aed;--primary2:#06b6d4;
+  --accent:#f59e0b;--text:#f1f5f9;--muted:#94a3b8;--green:#10b981;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cairo',sans-serif}
+.container{max-width:1140px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(13,17,23,.85);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.logo{font-family:'Cairo';font-weight:900;font-size:1.4rem;background:linear-gradient(90deg,var(--primary2),var(--primary));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-cta{background:linear-gradient(90deg,var(--primary),var(--primary2));color:#fff;padding:10px 24px;border-radius:50px;font-weight:700;text-decoration:none;font-size:.95rem;transition:.3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,58,237,.4)}
+.hero{padding:80px 0 60px;text-align:center;position:relative}
+.hero::before{content:'';position:absolute;top:-100px;right:10%;width:400px;height:400px;background:radial-gradient(circle,rgba(124,58,237,.25),transparent 70%);border-radius:50%;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:5%;width:350px;height:350px;background:radial-gradient(circle,rgba(6,182,212,.15),transparent 70%);border-radius:50%;pointer-events:none}
+.badge{display:inline-block;background:rgba(16,185,129,.12);color:var(--green);border:1px solid rgba(16,185,129,.3);padding:6px 18px;border-radius:50px;font-size:.85rem;font-weight:700;margin-bottom:24px}
+.hero h1{font-size:clamp(1.9rem,5vw,3.4rem);font-weight:900;line-height:1.35;margin-bottom:20px}
+.hero h1 .grad{background:linear-gradient(90deg,var(--primary2),var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:clamp(1rem,2.5vw,1.2rem);color:var(--muted);max-width:680px;margin:0 auto 36px}
+.btn{display:inline-block;font-family:'Cairo';font-weight:800;font-size:1.1rem;padding:16px 48px;border-radius:50px;text-decoration:none;transition:.3s}
+.btn-primary{background:linear-gradient(90deg,var(--primary),var(--primary2));color:#fff;box-shadow:0 10px 30px rgba(124,58,237,.35)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(124,58,237,.5)}
+.hero-trust{margin-top:28px;font-size:.85rem;color:var(--muted)}
+.hero-trust span{margin:0 8px}
+.emoji-hero{font-size:clamp(2.4rem,6vw,3.6rem);margin-bottom:16px}
+.pains{padding:50px 0;background:var(--bg2)}
+.pains-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.pain{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px;text-align:center}
+.pain .ic{font-size:2rem;margin-bottom:10px}
+.pain h3{font-size:1.05rem;margin-bottom:8px;color:var(--accent)}
+.pain p{color:var(--muted);font-size:.92rem}
+section{padding:70px 0}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;margin-bottom:12px}
+.section-title p{color:var(--muted);max-width:600px;margin:0 auto}
+.section-title .kicker{color:var(--primary2);font-weight:700;font-size:.9rem;letter-spacing:1px}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.feature{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:30px 24px;transition:.3s}
+.feature:hover{transform:translateY(-6px);border-color:rgba(124,58,237,.5);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.feature .ic{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(6,182,212,.2))}
+.feature h3{font-size:1.1rem;margin-bottom:8px}
+.feature p{color:var(--muted);font-size:.92rem}
+.testimonials{background:var(--bg2)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.testi{background:var(--card);border-radius:20px;padding:28px;border:1px solid rgba(255,255,255,.06)}
+.testi .stars{color:var(--accent);font-size:1rem;letter-spacing:3px;margin-bottom:14px}
+.testi p{color:var(--text);font-size:.95rem;margin-bottom:18px;font-style:italic}
+.testi .who{display:flex;align-items:center;gap:12px}
+.testi .avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Cairo';color:#fff}
+.av1{background:linear-gradient(135deg,#7c3aed,#a78bfa)}
+.av2{background:linear-gradient(135deg,#06b6d4,#22d3ee)}
+.av3{background:linear-gradient(135deg,#f59e0b,#fbbf24)}
+.testi .who strong{display:block;font-size:.95rem}
+.testi .who small{color:var(--muted)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:stretch}
+.price-card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:36px 28px;display:flex;flex-direction:column;position:relative;transition:.3s}
+.price-card:hover{transform:translateY(-6px)}
+.price-card.popular{border:2px solid var(--primary);box-shadow:0 0 50px rgba(124,58,237,.25)}
+.pop-tag{position:absolute;top:-14px;right:50%;transform:translateX(50%);background:linear-gradient(90deg,var(--primary),var(--primary2));padding:5px 22px;border-radius:50px;font-size:.8rem;font-weight:800;font-family:'Cairo'}
+.price-card h3{font-size:1.3rem;margin-bottom:6px}
+.price-card .for{color:var(--muted);font-size:.88rem;margin-bottom:20px}
+.price{font-family:'Cairo';font-size:2.8rem;font-weight:900;margin-bottom:4px}
+.price small{font-size:1rem;color:var(--muted);font-weight:600}
+.price-note{color:var(--green);font-size:.85rem;font-weight:700;margin-bottom:22px}
+.price-card ul{list-style:none;margin-bottom:28px;flex:1}
+.price-card li{padding:7px 0;font-size:.92rem;color:var(--text);display:flex;gap:10px;align-items:flex-start}
+.price-card li::before{content:'✔';color:var(--green);font-weight:900}
+.buy-btn{display:block;text-align:center;background:linear-gradient(90deg,var(--primary),var(--primary2));color:#fff;font-family:'Cairo';font-weight:800;padding:15px;border-radius:14px;text-decoration:none;font-size:1.05rem;transition:.3s}
+.buy-btn:hover{transform:scale(1.03);box-shadow:0 12px 30px rgba(124,58,237,.45)}
+.secure-note{text-align:center;margin-top:20px;color:var(--muted);font-size:.85rem}
+.faq{background:var(--bg2)}
+.faq-item{max-width:720px;margin:0 auto 14px;background:var(--card);border-radius:14px;border:1px solid rgba(255,255,255,.06);overflow:hidden}
+.faq-item summary{padding:18px 24px;font-weight:700;cursor:pointer;font-family:'Cairo';list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq-item summary::after{content:'+';color:var(--primary2);font-size:1.4rem;font-weight:400}
+.faq-item[open] summary::after{content:'−'}
+.faq-item p{padding:0 24px 18px;color:var(--muted);font-size:.95rem}
+footer{padding:40px 0;text-align:center;color:var(--muted);font-size:.88rem;border-top:1px solid rgba(255,255,255,.06)}
+footer strong{color:var(--text)}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);z-index:200;align-items:center;justify-content:center;padding:16px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--card);border:1px solid rgba(245,158,11,.4);border-radius:22px;max-width:520px;width:100%;max-height:92vh;overflow-y:auto;padding:32px 28px;position:relative;animation:pop .3s ease}
+@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+.modal h3{font-size:1.3rem;margin-bottom:4px}
+.modal .sub{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+.modal-close{position:absolute;top:16px;left:16px;background:rgba(255,255,255,.08);border:none;color:var(--text);width:34px;height:34px;border-radius:50%;font-size:1.1rem;cursor:pointer}
+.modal label{display:block;font-weight:700;font-size:.9rem;margin:16px 0 6px;font-family:'Cairo'}
+.modal input,.modal select,.modal textarea{width:100%;background:var(--bg);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 14px;color:var(--text);font-family:'Tajawal';font-size:.95rem;transition:.2s}
+.modal input:focus,.modal select:focus,.modal textarea:focus{outline:none;border-color:var(--primary2);box-shadow:0 0 0 3px rgba(6,182,212,.15)}
+.modal textarea{min-height:110px;resize:vertical}
+.modal .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.submit-btn{width:100%;margin-top:24px;background:linear-gradient(90deg,var(--accent),#fbbf24);color:#0d1117;font-family:'Cairo';font-weight:800;padding:15px;border:none;border-radius:14px;font-size:1.05rem;cursor:pointer;transition:.3s}
+.submit-btn:hover{transform:scale(1.02);box-shadow:0 12px 30px rgba(245,158,11,.35)}
+.form-success{display:none;text-align:center;padding:20px 0}
+.form-success .big{font-size:3rem;margin-bottom:12px}
+.form-success h4{font-size:1.3rem;margin-bottom:10px}
+.form-success p{color:var(--muted);margin-bottom:22px}
+.err{color:#f87171;font-size:.82rem;margin-top:4px;display:none}
+@media(max-width:600px){
+  .hero{padding:50px 0 40px}
+  .btn{padding:14px 36px;font-size:1rem;width:90%;max-width:340px}
+  section{padding:50px 0}
+  .price-card.popular{transform:none}
+}
+@media(max-width:480px){.modal .row{grid-template-columns:1fr}.modal{padding:26px 20px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">⚡ نظّم حياتك</div>
+    <a href="#pricing" class="nav-cta">احصل على قالبك</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="emoji-hero">🎓💼🚀</div>
+    <div class="badge">✨ قوالب Notion جاهزة — تحميل فوري</div>
+    <h1>تعبت من الفوضى؟<br><span class="grad">مهامك، درجاتك، وأرباحك</span><br>في لوحة واحدة ذكية</h1>
+    <p>ثلاثة قوالب احترافية مصممة لك: الطالب الذي يضيع بين الواجبات، الموظف المختنق بالمهام، ورائد الأعمال الذي يطارد أرقامه — نظّم كل شيء خلال دقائق، وليس أسابيع.</p>
+    <a href="#pricing" class="btn btn-primary">🚀 اختر قالبك الآن — من 5$ فقط</a>
+    <div class="hero-trust">
+      <span>✔ تحميل فوري</span>•<span>✔ دفع آمن 100%</span>•<span>✔ تحديثات مجانية</span>
+    </div>
+  </div>
+</header>
+
+<div class="pains">
+  <div class="container pains-grid">
+    <div class="pain">
+      <div class="ic">😰</div>
+      <h3>طالب؟ واجباتك ومواعيدك تضيع بين الدفاتر</h3>
+      <p>تنسى موعد التسليم، وموادك متناثرة في كل مكان، ودرجاتك بلا متابعة. هذا القالب يجمع كل شيء في لوحة واحدة.</p>
+    </div>
+    <div class="pain">
+      <div class="ic">😵‍💫</div>
+      <h3>موظف؟ يومك يمضي بلا إنجاز واضح</h3>
+      <p>مهام متراكمة، اجتماعات بلا فائدة، وتقريرك الأسبوعي صداع في آخر الدوام. نظّم أولوياتك واحترف تقاريرك.</p>
+    </div>
+    <div class="pain">
+      <div class="ic">😤</div>
+      <h3>صاحب مشروع؟ أرقامك مشتّة والعملاء يضيعون</h3>
+      <p>دخل ومصاريف بدون متابعة، وعملاء محتملون نسيتهم، ولا تعرف هامش ربحك الحقيقي. حان وقت الاحتراف.</p>
+    </div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="container">
+    <div class="section-title">
+      <div class="kicker">لماذا هذه القوالب؟</div>
+      <h2>مميزات صممت لتوفّر وقتك وتربحك المال</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature"><div class="ic">⚡</div><h3>جاهز خلال دقائق</h3><p>انسخ، الصق في Notion، وابدأ فوراً — لا حاجة لأي خبرة تقنية.</p></div>
+      <div class="feature"><div class="ic">📊</div><h3>جداول ذكية تفاعلية</h3><p>مهام، درجات، إيرادات، وعملاء في جداول منظمة قابلة للتصفية والفرز.</p></div>
+      <div class="feature"><div class="ic">🎯</div><h3>أنظمة مجرّبة</h3><p>مصممة على منهجيات الإنتاجية الحديثة: أولويات، Kanban، وخط استحواذ للعملاء.</p></div>
+      <div class="feature"><div class="ic">📱</div><h3>يعمل على كل جهاز</h3><p>هاتفك، حاسوبك، وحتى تابلتك — بياناتك معك أينما كنت.</p></div>
+      <div class="feature"><div class="ic">🔒</div><h3>خصوصية كاملة</h3><p>كل شيء يعمل داخل حسابك الخاص في Notion، بياناتك ملكك وحدك.</p></div>
+      <div class="feature"><div class="ic">🔄</div><h3>تحديثات مجانية مدى الحياة</h3><p>كل تحسين نضيفه مستقبلاً يصلك مجاناً — ادفع مرة واحدة فقط.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="section-title">
+      <div class="kicker">قالوا عنا</div>
+      <h2>ماذا يقول عملاؤنا؟</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p>"كنت أنسى نصف الواجبات قبله. من أسبوعين أستخدم قالب الطلاب ودرجاتي ارتفعت بشكل ملحوظ — صرت أعرف موعد كل تسليم."</p>
+        <div class="who"><div class="avatar av1">م</div><div><strong>محمد العبري</strong><small>طالب جامعي — سلطنة عُمان</small></div></div>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p>"تقاريري الأسبوعية للمدير صارت تُكتب في 10 دقائق بدل ساعة. نظام الأولويات غيّر طريقة يومي بالكامل."</p>
+        <div class="who"><div class="avatar av2">س</div><div><strong>سارة القحطاني</strong><small>موظفة إدارية — السعودية</small></div></div>
+      </div>
+      <div class="testi">
+        <div class="stars">★★★★★</div>
+        <p>"أخيراً صرت أعرف هامش ربحي الحقيقي لكل خدمة! جدول العملاء مع خط الاستحواذ ساعدني أغلق صفقات كنت أنساها."</p>
+        <div class="who"><div class="avatar av3">خ</div><div><strong>خالد المهيري</strong><small>رائد أعمال — الإمارات</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <div class="section-title">
+      <div class="kicker">أسعار بسيطة</div>
+      <h2>ادفع مرة واحدة، واستخدمه مدى الحياة</h2>
+      <p>بدون اشتراكات شهرية — اختر القالب المناسب لك</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>🎓 قالب الطلاب</h3>
+        <div class="for">للطالب الذي يرفع درجاته وينظم دراسته</div>
+        <div class="price">$5 <small>دفعة واحدة</small></div>
+        <div class="price-note">✔ أقل من كوب قهوة</div>
+        <ul>
+          <li>لوحة يومية للمهام والمواعيد</li>
+          <li>جداول المواد والواجبات</li>
+          <li>متابعة الدرجات والأهداف</li>
+          <li>جدول أسبوعي + مكتبة مصادر</li>
+        </ul>
+        <a href="#" class="buy-btn">اشترِ الآن — $5 🛒</a>
+      </div>
+      <div class="price-card popular">
+        <div class="pop-tag">⭐ الأكثر مبيعاً</div>
+        <h3>💼 قالب الموظفين</h3>
+        <div class="for">للموظف الطموح الذي يريد الإنجاز والترقية</div>
+        <div class="price">$10 <small>دفعة واحدة</small></div>
+        <div class="price-note">✔ نظام الأولويات + التقارير الجاهزة</div>
+        <ul>
+          <li>إدارة مهام بنظام (عاجل/مهم)</li>
+          <li>تقارير أسبوعية ونموذج مراجعة أداء</li>
+          <li>تتبع الرواتب والمستحقات</li>
+          <li>سجل ملاحظات المدير + التطوير المهني</li>
+        </ul>
+        <a href="#" class="buy-btn">اشترِ الآن — $10 🛒</a>
+      </div>
+      <div class="price-card">
+        <h3>🚀 قالب رواد الأعمال</h3>
+        <div class="for">لصاحب المشروع الصغير والعمل الحر</div>
+        <div class="price">$15 <small>دفعة واحدة</small></div>
+        <div class="price-note">✔ إدارة كاملة من الفكرة للربح</div>
+        <ul>
+          <li>إدارة الإيرادات والمصاريف وهامش الربح</li>
+          <li>جدول عملاء + خط استحواذ (Pipeline)</li>
+          <li>تقويم محتوى تسويقي</li>
+          <li>خارطة طريق من الفكرة للإطلاق + سجل المخاطر</li>
+        </ul>
+        <a href="#" class="buy-btn">اشترِ الآن — $15 🛒</a>
+      </div>
+    </div>
+    <div class="secure-note">🔒 دفع آمن ومشفر عبر Visa / Mastercard / Apple Pay — تحميل فوري بعد الدفع</div>
+  </div>
+</section>
+
+<section id="custom" style="padding-top:0">
+  <div class="container">
+    <div class="section-title">
+      <div class="kicker">خدمة VIP</div>
+      <h2>🎨 حزمة التخصيص الشخصي</h2>
+      <p>القوالب الجاهزة لا تناسبك تماماً؟ صمّمنا لك قالب Notion حصري مبني على احتياجك أنت</p>
+    </div>
+    <div style="max-width:640px;margin:0 auto;background:linear-gradient(145deg,#1a2330,#141b24);border:2px solid var(--accent);border-radius:26px;padding:40px 32px;position:relative;box-shadow:0 20px 60px rgba(245,158,11,.12)">
+      <div style="position:absolute;top:-14px;right:50%;transform:translateX(50%);background:linear-gradient(90deg,var(--accent),#fbbf24);color:#0d1117;padding:5px 26px;border-radius:50px;font-size:.85rem;font-weight:800;font-family:'Cairo'">👑 الأعلى قيمة</div>
+      <div style="text-align:center;margin-bottom:24px">
+        <div style="font-family:'Cairo';font-size:2.6rem;font-weight:900">$49 <small style="font-size:1rem;color:var(--muted)">بدلاً من $79</small></div>
+        <div style="color:var(--green);font-weight:700;font-size:.9rem">✔ دفعة واحدة — بلا اشتراكات</div>
+      </div>
+      <ul style="list-style:none;margin-bottom:30px">
+        <li style="padding:8px 0;display:flex;gap:10px"><span style="color:var(--accent);font-weight:900">✔</span> جلسة استشارية (30 دقيقة) نفهم فيها نظام عملك بالضبط</li>
+        <li style="padding:8px 0;display:flex;gap:10px"><span style="color:var(--accent);font-weight:900">✔</span> قالب Notion حصري مصمم خصيصاً لك من الصفر</li>
+        <li style="padding:8px 0;display:flex;gap:10px"><span style="color:var(--accent);font-weight:900">✔</span> شرح فيديو مصور لطريقة استخدام قالبك</li>
+        <li style="padding:8px 0;display:flex;gap:10px"><span style="color:var(--accent);font-weight:900">✔</span> تعديلان مجانيان بعد التسليم</li>
+        <li style="padding:8px 0;display:flex;gap:10px"><span style="color:var(--accent);font-weight:900">✔</span> دعم مباشر لمدة 30 يوماً بعد التسليم</li>
+        <li style="padding:8px 0;display:flex;gap:10px"><span style="color:var(--accent);font-weight:900">✔</span> تسليم خلال 5 أيام عمل</li>
+      </ul>
+      <a href="#" class="buy-btn" style="background:linear-gradient(90deg,var(--accent),#fbbf24);color:#0d1117" onclick="openCustomForm(event)">اطلب قالبك المخصص الآن — $49 👑</a>
+      <div style="text-align:center;margin-top:16px;font-size:.85rem;color:var(--muted)">أماكن محدودة شهرياً للحفاظ على الجودة</div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <div class="section-title">
+      <div class="kicker">أسئلة شائعة</div>
+      <h2>كل ما تريد معرفته</h2>
+    </div>
+    <details class="faq-item">
+      <summary>كيف أستلم القالب بعد الدفع؟</summary>
+      <p>فور إتمام الدفع يصلك رابط التحميل مباشرة + رابط نسخ القالب إلى حسابك في Notion خلال دقائق.</p>
+    </details>
+    <details class="faq-item">
+      <summary>هل أحتاج خبرة في Notion؟</summary>
+      <p>إطلاقاً. القوالب جاهزة بالكامل — كل ما تحتاجه هو نسخ ولصق، ومع كل قالب يوجد شرح مصور بسيط.</p>
+    </details>
+    <details class="faq-item">
+      <summary>هل الدفع آمن؟ وما وسائل الدفع المتاحة؟</summary>
+      <p>نعم، الدفع يتم عبر بوابة مشفرة تدعم Visa وMastercard وApple Pay، مع إمكانية السحوبات البنكية المحلية.</p>
+    </details>
+    <details class="faq-item">
+      <summary>ماذا لو واجهت مشكلة؟</summary>
+      <p>نوفر دعماً سريعاً عبر البريد الإلكتروني، وكل عملية شراء تشمل تحديثات مجانية مدى الحياة.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><strong>⚡ نظّم حياتك</strong> — قوالب إنتاجية ذكية للعالم العربي</p>
+    <p>© 2026 جميع الحقوق محفوظة</p>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="customModal">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" onclick="closeCustomForm()">✕</button>
+    <div id="formView">
+      <h3>🎨 اطلب قالبك المخصص</h3>
+      <div class="sub">أخبرنا عن احتياجك وسنتواصل معك خلال 24 ساعة لجلسة الاستشارة</div>
+      <form id="customForm" onsubmit="submitCustomForm(event)">
+        <div class="row">
+          <div>
+            <label>الاسم الكامل *</label>
+            <input type="text" id="fName" placeholder="مثال: أحمد البلوشي" required>
+          </div>
+          <div>
+            <label>البريد الإلكتروني *</label>
+            <input type="email" id="fEmail" placeholder="name@email.com" required>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>نوع النشاط *</label>
+            <select id="fType" required>
+              <option value="">— اختر —</option>
+              <option>طالب</option>
+              <option>موظف</option>
+              <option>رائد أعمال / مشروع صغير</option>
+              <option>عمل حر (فريلانسر)</option>
+              <option>أخرى</option>
+            </select>
+          </div>
+          <div>
+            <label>وسيلة تواصل إضافية (واتساب)</label>
+            <input type="tel" id="fPhone" placeholder="+968 XXXXXXXX">
+          </div>
+        </div>
+        <label>صف لنا ما تحتاجه بالضبط *</label>
+        <textarea id="fNeeds" placeholder="مثال: أدير فريقاً من 5 أشخاص وأحتاج لوحة لمتابعة المشاريع والمهام الأسبوعية وتقارير الإنجاز..." required></textarea>
+        <button type="submit" class="submit-btn">إرسال الطلب والانتقال للدفع — $49 👑</button>
+        <div class="err" id="formErr">يرجى تعبئة جميع الحقول المطلوبة بشكل صحيح</div>
+      </form>
+    </div>
+    <div class="form-success" id="successView">
+      <div class="big">🎉</div>
+      <h4>تم استلام طلبك بنجاح!</h4>
+      <p>سنتواصل معك خلال 24 ساعة لتحديد موعد الجلسة الاستشارية.<br>أكمل الآن عملية الدفع لتأكيد حجز مكانك.</p>
+      <a href="#" class="buy-btn" style="background:linear-gradient(90deg,var(--accent),#fbbf24);color:#0d1117">💳 أكمل الدفع الآن — $49</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function openCustomForm(e){e.preventDefault();document.getElementById('customModal').classList.add('open');document.body.style.overflow='hidden'}
+function closeCustomForm(){document.getElementById('customModal').classList.remove('open');document.body.style.overflow=''}
+document.getElementById('customModal').addEventListener('click',function(e){if(e.target===this)closeCustomForm()});
+function submitCustomForm(e){
+  e.preventDefault();
+  var name=document.getElementById('fName').value.trim(),
+      email=document.getElementById('fEmail').value.trim(),
+      type=document.getElementById('fType').value,
+      needs=document.getElementById('fNeeds').value.trim(),
+      err=document.getElementById('formErr');
+  var emailOk=/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(email);
+  if(!name||!emailOk||!type||!needs){err.style.display='block';return}
+  err.style.display='none';
+  document.getElementById('formView').style.display='none';
+  document.getElementById('successView').style.display='block';
+}
+</script>
+
+</body>
+</html>
